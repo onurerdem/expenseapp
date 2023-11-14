@@ -1,4 +1,5 @@
 import 'package:expenseapp/models/expense.dart';
+import 'package:expenseapp/widgets/expense_item.dart';
 import 'package:flutter/material.dart';
 
 class ExpenseList extends StatefulWidget {
@@ -13,7 +14,7 @@ class _ExpenseListState extends State<ExpenseList> {
   final List<Expense> expenses = [
     Expense(
         name: "Yiyecek",
-        price: 200,
+        price: 200.524,
         date: DateTime.now(),
         category: Category.food),
     Expense(
@@ -31,14 +32,14 @@ class _ExpenseListState extends State<ExpenseList> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(
-            height: 300,
+            height: 150,
             child: Text("Grafik"),
           ),
           Expanded(
             child: ListView.builder(
               itemCount: expenses.length,
               itemBuilder: (context, index) {
-                return Text(expenses[index].name);
+                return ExpenseItem(expenses[index]);
               },
             ),
           ),
