@@ -41,7 +41,9 @@ class _MainPageState extends State<MainPage> {
               icon: const Icon(Icons.add)),
         ],
       ),
-      body: ExpenseList(expenses, removeExpense),
+       body: expenses.length > 0
+          ? ExpenseList(expenses, removeExpense)
+          : const Text("Henüz hiç bir veri girmediniz..."),
     );
   }
 }
